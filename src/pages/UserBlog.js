@@ -56,7 +56,7 @@ const UserBlog = () => {
     if (BlogList.length === 0) {
         return <div className=" text-white rounded-lg mt-6 bg-slate-600 mx-auto px-4 py-6 w-3/4 sm:w-2/5">
             <h1> Oopss !!! <br /> Nothing found :( </h1>
-            <Link to={"/create-post"} ><button className=" text-xl bg-red-900 hover:bg-slate-900 px-5 py-3 mt-6 rounded-xl">Create now</button></Link> 
+            <Link to={"/create-post"} ><button className=" text-xl bg-slate-900 hover:bg-slate-800 duration-150 px-5 py-3 mt-6 rounded-xl">Create now</button></Link> 
              </div>
     }
     return (
@@ -74,8 +74,8 @@ const UserBlog = () => {
                         ) : (
                             <div className=" text-slate-200 my-3">{blog.blog}</div>
                         )}
-                        <button className=" bg-red-600 hover:bg-red-800 p-2 rounded-md mr-3" onClick={() => deleteBlog(blog.id)}>Delete</button>
-                        <button className=" bg-slate-600 hover:bg-green-800 p-2 rounded-md" onClick={() => updateBlog(index)}>Update</button>
+                        <button className=" text-red-600 hover:bg-red-800 hover:text-black p-2 rounded-md mr-3 duration-500" onClick={() => deleteBlog(blog.id)}>Delete</button>
+                        <button className=" text-slate-600 hover:bg-slate-600 hover:text-black p-2 rounded-md duration-500" onClick={() => updateBlog(index)}>Update</button>
                     </div>
                 );
             })}

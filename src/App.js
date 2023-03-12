@@ -10,6 +10,7 @@ import Blogs from "./pages/Blogs";
 import UserBlog from "./pages/UserBlog";
 import UserDetails from "./pages/UserDetails";
 import ReadMore from "./pages/ReadMore";
+import Footer from "./components/Footer";
 
 function App() {
   // const [user] = useAuthState(auth);
@@ -17,17 +18,20 @@ function App() {
     <div className="flex flex-col text-center bg-slate-900 min-h-screen">
       <Router>
         <Navbar />
-        <Routes>
-          <Route path="*" element={<><h1>Page Not Available</h1></>} />
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/blogs" element={<Blogs />} />
-          <Route path="/create-post" element={<CreatePost />} />
-          <Route path="/user-blogs" element={<UserBlog />} />
-          <Route path="/user-details" element={<UserDetails />} />
-          <Route path="/blog/read-more/:blogId" element={<ReadMore />} />
+        <div className=" min-h-screen">
+          <Routes>
+            <Route path="*" element={<><h1>Page Not Available</h1></>} />
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/blogs" element={<Blogs />} />
+            <Route path="/create-post" element={<CreatePost />} />
+            <Route path="/user-blogs" element={<UserBlog />} />
+            <Route path="/user-details" element={<UserDetails />} />
+            <Route path="/blog/read-more/:blogId" element={<ReadMore />} />
 
-        </Routes>
+          </Routes>
+        </div>
+        <Footer />
       </Router>
     </div>
   );
