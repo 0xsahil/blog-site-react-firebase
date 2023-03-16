@@ -27,7 +27,6 @@ const UserBlog = () => {
         const q = query(blogsRef, where("userId", "==", userID));
         const data = await getDocs(q);
         setBlogList(data.docs.map((blog) => ({ ...blog.data(), id: blog.id })));
-        // console.log(userId)
     };
     const deleteBlog = (id) => {
         const docRef = doc(db, "Blogs", id);
@@ -52,12 +51,13 @@ const UserBlog = () => {
     }
     useEffect(() => {
         getBlogList();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user]);
     if (BlogList.length === 0) {
         return <div className=" text-white rounded-lg mt-6 bg-slate-600 mx-auto px-4 py-6 w-3/4 sm:w-2/5">
             <h1> Oopss !!! <br /> Nothing found :( </h1>
-            <Link to={"/create-post"} ><button className=" text-xl bg-slate-900 hover:bg-slate-800 duration-150 px-5 py-3 mt-6 rounded-xl">Create now</button></Link> 
-             </div>
+            <Link to={"/create-post"} ><button className=" text-xl bg-slate-900 hover:bg-slate-800 duration-150 px-5 py-3 mt-6 rounded-xl">Create now</button></Link>
+        </div>
     }
     return (
         <div>
